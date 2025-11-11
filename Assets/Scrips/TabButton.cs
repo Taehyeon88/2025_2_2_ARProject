@@ -10,7 +10,6 @@ public class TabButton : MonoBehaviour
     public GameObject GetPanel => panel;
 
     Image btnImage;
-    Color btnColor;
     TabController parent;
 
 
@@ -19,13 +18,8 @@ public class TabButton : MonoBehaviour
         Button btn = GetComponent<Button>();
         btn.onClick.AddListener(SwitchTap);
         parent = gameObject.transform.parent.GetComponent<TabController>();
-        btnImage = btn.GetComponent<Image>();
+        btnImage = GetComponent<Image>();
 
-        if (btnImage != null)
-        {
-            Debug.Log("색상 설정");
-            btnColor = btnImage.color;
-        }
     }
 
     void SwitchTap()  //탭 변경
@@ -35,10 +29,11 @@ public class TabButton : MonoBehaviour
 
     public void ChangeButtonImageAlpa(float value)  //버튼 투명도 변경
     {
-        if (btnColor == null) return;
+        if (btnImage == null) return;
+        Debug.Log(btnImage.color);
 
-        Color color = btnColor;
+        Color color = btnImage.color;
         color.a = value;
-        btnColor = color;
+        btnImage.color = color;
     }
 }
