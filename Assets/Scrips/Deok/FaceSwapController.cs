@@ -12,11 +12,19 @@ public class FaceSwapController : MonoBehaviour
         Instance = this;
     }
 
-    public void SwitchAccessory(int index)
+    public void SwitchAccessory(int index)   //0 ~ 6 : ¸Ó¸® | 7,8 : ¾ó±¼
     {
-        foreach (var item in accessories)
+        bool isHat = index <= 6;
+        for (int i = 0; i < accessories.Count; i++)
         {
-            if (item != null) item.SetActive(false);
+            if (accessories[i] != null)
+            {
+                if (isHat) if (i >= 7) return;
+                else
+                if (i <= 6) return;
+
+                accessories[i].SetActive(false);
+            }
         }
         if (index >= 0 && index < accessories.Count && accessories[index] != null)
         {

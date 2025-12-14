@@ -41,4 +41,14 @@ public class Buttons : MonoBehaviour
         if (FaceSwapController.Instance != null)
             FaceSwapController.Instance.SwitchAccessory(6);
     }
+    public void ClickButton8()
+    {
+        if (FaceSwapController.Instance != null)
+            FaceSwapController.Instance.SwitchAccessory(7);
+    }
+    public void ClickButton9()
+    {
+        if (FaceSwapController.Instance != null)
+            FaceSwapController.Instance.SwitchAccessory(8);
+    }
 }
